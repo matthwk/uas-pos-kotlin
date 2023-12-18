@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentProfile">
+
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.example.uas.FragmentProfile"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_editProfile"
+            app:destination="@id/fragmentEditProfile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentEditProfile"
+        android:name="com.example.uas.FragmentEditProfile"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfile_to_profile"
+            app:destination="@id/fragmentProfile"
+            app:popUpTo="@id/fragmentProfile"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentViewInventory"
+        android:name="com.example.uas.FragmentViewInventory"
+        android:label="Inventory List"
+        tools:layout="@layout/fragment_view_inventory">
+        <action
+            android:id="@+id/action_fragmentViewInventory_to_fragmentAddInventory"
+            app:destination="@id/fragmentAddInventory" />
+        <action
+            android:id="@+id/action_fragmentViewInventory_to_fragmentEditInventory"
+            app:destination="@id/fragmentEditInventory" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentAddInventory"
+        android:name="com.example.uas.FragmentAddInventory"
+        android:label="Add Inventory"
+        tools:layout="@layout/fragment_add_inventory">
+        <action
+            android:id="@+id/action_fragmentAddInventory_to_fragmentViewInventory"
+            app:destination="@id/fragmentViewInventory" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentEditInventory"
+        android:name="com.example.uas.FragmentEditInventory"
+        android:label="Edit Inventory"
+        tools:layout="@layout/fragment_edit_inventory">
+        <argument
+            android:name="sku"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentViewOrder"
+        android:name="com.example.uas.FragmentViewOrder"
+        android:label="View Orders"
+        tools:layout="@layout/fragment_view_order">
+        <action
+            android:id="@+id/action_fragmentViewOrder_to_fragmentAddOrder"
+            app:destination="@id/fragmentAddOrder" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentAddOrder"
+        android:name="com.example.uas.FragmentAddOrder"
+        android:label="Add Order"
+        tools:layout="@layout/fragment_add_order">
+        <action
+            android:id="@+id/action_fragmentAddOrder_to_fragmentViewOrder"
+            app:destination="@id/fragmentViewOrder"
+            app:popUpTo="@id/fragmentViewOrder"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
